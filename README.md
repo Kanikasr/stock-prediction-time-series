@@ -1,4 +1,7 @@
-📈 Yes Bank Stock Price Forecast — ARIMA Model (Streamlit App)
+📈 Yes Bank Stock Price Forecast 
+<img width="1280" height="854" alt="image" src="https://github.com/user-attachments/assets/985e4fb9-4a9d-40ba-8f44-abe261dbcc23" />
+
+
 
 This project builds a Time-Series Forecasting App that predicts the monthly closing price of Yes Bank Ltd. (NSE: YESBANK) using the ARIMA statistical model.
 It includes a deployed-friendly Streamlit Web Application with data visualization and forecast export features.

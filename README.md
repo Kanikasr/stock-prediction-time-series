@@ -6,9 +6,13 @@ It includes a deployed-friendly Streamlit Web Application with data visualizatio
 🚀 Project Overview
 
 ✔ Historical monthly stock data collected and cleaned
+
 ✔ ARIMA model trained for forecasting
+
 ✔ Streamlit dashboard for predictions
+
 ✔ Export forecasts to CSV
+
 ✔ Easy to integrate and extend for any stock or time series data
 
 The app forecasts future monthly closing prices and visualizes both historical and predicted values.

@@ -1,4 +1,5 @@
-📈 Yes Bank Stock Price Forecast 
+<img width="768" height="768" alt="image" src="https://github.com/user-attachments/assets/7411dd0e-203f-4bdd-9794-d55bd988991a" />  Yes Bank Stock Closing Price Prediction
+
 
 <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/11df143a-68f9-458b-acd9-14c454b45701" />
 

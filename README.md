@@ -107,12 +107,14 @@ The model forecasts future values based solely on patterns from historical price
 (Actual output may vary depending on retraining)
 
 📦 **requirements.txt**
+
 streamlit
 pandas
 numpy
 matplotlib
 statsmodels
 joblib
+
 
 🚧 **Future Enhancements**
 

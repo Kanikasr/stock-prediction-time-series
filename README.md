@@ -171,17 +171,6 @@ Stored in project as data.csv
 
 ---
 
- **requirements.txt**
-
-streamlit
-pandas
-numpy
-matplotlib
-statsmodels
-joblib
-
----
-
 ## Future Enhancements
 
 - LSTM / Prophet model comparisons  

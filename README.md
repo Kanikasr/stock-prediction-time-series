@@ -6,58 +6,118 @@
 
 
 
-This project builds a Time-Series Forecasting App that predicts the monthly closing price of Yes Bank Ltd. (NSE: YESBANK) using the ARIMA statistical model.
-It includes a deployed-friendly Streamlit Web Application with data visualization and forecast export features.
+This project builds a complete **time-series forecasting system** for predicting the monthly closing price of **Yes Bank Ltd. (NSE: YESBANK)**.
 
-🚀 **Project Overview:**
+It includes:
 
-✔ Historical monthly stock data collected and cleaned
+- ARIMA statistical model  
+- Machine-Learning model (Random Forest)  
+- Hybrid model = ARIMA Trend + ML Residual Correction  
+- Fully interactive Streamlit dashboard  
+- Forecasts for 12 / 24 / 36 months  
+- Feature engineering, visualizations, metrics & exports  
 
-✔ ARIMA model trained for forecasting
+A full end-to-end Data Science + Time-Series + Deployment project.
 
-✔ Streamlit dashboard for predictions
+---
 
-✔ Export forecasts to CSV
+## Project Highlights
 
-✔ Easy to integrate and extend for any stock or time series data
+- Cleaned & prepared **185+ months** of stock data  
+- Built ARIMA(1,1,1) for trend modeling  
+- Engineered ML features (lags, rolling mean, month, year, range)  
+- Trained Random Forest for:
+  - trend prediction  
+  - residual correction (hybrid model)  
+- Developed advanced Streamlit app with:
+  - ARIMA / ML / Hybrid comparison  
+  - Metrics dashboard  
+  - Residual analysis  
+  - Feature importance  
+  - Data explorer + CSV export  
+  - Multi-horizon forecasting  
 
-The app forecasts future monthly closing prices and visualizes both historical and predicted values.
+---
 
- A great end-to-end Data Science + Time-Series + Deployment project!
+## Models Included
 
-📌 **Key Features:**
-Feature	Description
-| Feature              | Description                                 |
-| -------------------- | ------------------------------------------- |
-|  ARIMA Model       | Accurate univariate time-series forecasting |
-|  Flexible Horizon  | Forecast next **12 / 24 / 36 months**       |
-|  Streamlit App    | UI for visualization & interaction          |
-|  Interactive Graph | Stock closing trend + mean forecast         |
-|  Download Button   | Export forecast as CSV                      |
-|  Model Saving      | Reload trained model without retraining     |
+### **1. ARIMA Model**
+Univariate forecasting capturing:
+- Trend  
+- Autocorrelation  
+- Month-to-month dynamics  
 
+**Best for:** Long-term smooth trend prediction.
 
-🧱 **Tech Stack:**
-| Component     | Technology        |
-| ------------- | ----------------- |
-| Programming   | Python            |
-| Data Handling | Pandas, NumPy     |
-| Model         | Statsmodels ARIMA |
-| Visualization | Matplotlib        |
-| Deployment UI | Streamlit         |
-| Serialization | Joblib            |
+---
 
+### **2. ML Model (Random Forest Regressor)**
+Uses engineered features:
 
-📂 **Folder Structure:**
+- Lag1, Lag2  
+- 3-month Moving Average  
+- Month & Year  
+- High–Low price range  
+
+**Best for:** Learning non-linear short-term movements.
+
+---
+
+### **3. Hybrid Model (Recommended Output)**  
+**Hybrid = ARIMA Mean + ML Residual Prediction**
+
+Benefits:
+- ARIMA handles trend  
+- ML corrects volatility  
+- Best accuracy overall  
+
+---
+
+## Example Forecast (12 Months)
+
+| Date       | ARIMA | ML Trend | Hybrid (Final) |
+|------------|-------|----------|----------------|
+| 2020-12-01 | 13.72 | 14.77    | 14.21          |
+| 2021-01-01 | 14.49 | 14.45    | 14.74          |
+| 2021-02-01 | 13.86 | 13.51    | 14.12          |
+| ...        | ...   | ...      | ...            |
+
+(The hybrid model gives the most realistic future curve.)
+
+---
+
+## 📁 Folder Structure
 yesbank-forecast/
-│
-├── app.py                # Streamlit Application
-├── arima_model.pkl       # Trained ARIMA Model
-├── data.csv              # Final cleaned Stock Data (Monthly)
-├── README.md             # Documentation (This File)
-└── requirements.txt      # Dependencies
+│── app.py # Streamlit Application
+│── data.csv # Cleaned Monthly Stock Data
+│── arima_model.pkl # Saved ARIMA model
+│── best_ml_model.pkl # ML Trend Model
+│── rf_resid.pkl # Residual Correction Model
+│── scaler.pkl # Scaler for ML
+│── scaler_resid.pkl # Scaler for residual model
+│── features.json # Saved ML feature list
+│── requirements.txt
+│── README.md
 
-▶️ **How to Run the App:**
+
+---
+
+## Tech Stack
+
+| Component     | Technology |
+|---------------|------------|
+| Programming   | Python     |
+| Time-Series   | Statsmodels ARIMA |
+| ML Models     | Scikit-Learn |
+| Deployment    | Streamlit |
+| Visualization | Matplotlib, Seaborn |
+| Serialization | Joblib |
+| Notebook      | Google Colab |
+
+---
+
+## How to Run
+
 Install dependencies:
 
 pip install -r requirements.txt
@@ -67,10 +127,36 @@ Run Streamlit app:
 streamlit run app.py
 
 
-Then open browser:
- http://localhost:8501/
 
-📁 **Dataset Used:**
+Open browser →  
+**http://localhost:8501**
+
+---
+
+## Accuracy Metrics
+
+- ARIMA RMSE: ~46  
+- RandomForest RMSE: ~7.6  
+- Improvement: **84% reduction in RMSE**  
+- Hybrid improves short-term movement prediction  
+- ARIMA provides stable backbone  
+- ML corrects volatility (residual learning)
+
+---
+
+## Visualizations Included
+
+- Historical Stock Trend  
+- ARIMA vs ML vs Hybrid Comparison  
+- Hybrid Decomposition (ARIMA trend + residual correction)  
+- Feature Importance  
+- Rolling Statistics  
+- Residual Plots  
+- Data Explorer with filtering and export  
+
+---
+
+ **Dataset Used:**
 
 Source: NSE Yes Bank historical data (Monthly)
 
@@ -83,30 +169,9 @@ Close (Adjusted Closing Price)
 Stored in project as data.csv
 <img width="1163" height="449" alt="image" src="https://github.com/user-attachments/assets/f84b2bae-564b-4146-8e20-2230d550be3f" />
 
+---
 
-📈 **Model Training Summary:**
-
-Model Type: ARIMA(p,d,q)
-
-Target variable: Monthly Closing Price
-
-Data Period: Up to Nov 2020
-
-Model serialized using joblib
-
-The model forecasts future values based solely on patterns from historical prices.
-
-🔮 **Example Forecast Output (Next 12 Months):**
-| Date       | Predicted Close |
-| ---------- | --------------- |
-| 2020-12-01 | 13.72           |
-| 2021-01-01 | 14.49           |
-| 2021-02-01 | 13.86           |
-| ...        | ...             |
-
-(Actual output may vary depending on retraining)
-
-📦 **requirements.txt**
+ **requirements.txt**
 
 streamlit
 pandas
@@ -115,16 +180,19 @@ matplotlib
 statsmodels
 joblib
 
+---
 
-🚧 **Future Enhancements**
+## Future Enhancements
 
-- Confidence Interval bands in the plot
-- MAPE / RMSE model accuracy displayed
-- Auto model selection (ARIMA/AutoARIMA comparison)
-- Add option for new data upload
-- Deployment on Streamlit Cloud / Heroku
+- LSTM / Prophet model comparisons  
+- Auto-ARIMA  
+- Include macro-economic indicators  
+- API-based real-time stock updates  
+- Deployment on Streamlit Cloud  
 
-👨‍💻 **Author**
+---
+
+ **Author**
 
 Kanika Singh Rajpoot
 M.Tech — Signal Processing | Data Science Enthusiast

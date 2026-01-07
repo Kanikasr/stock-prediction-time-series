@@ -1,0 +1,31 @@
+# Model artifacts / archives
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.zip
+
+# Images / plots / screenshots
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Data files
+*.csv
+*.parquet
+*.db
+*.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
